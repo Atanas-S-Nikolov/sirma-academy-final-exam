@@ -1,0 +1,36 @@
+:root {
+  font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  min-height: 100vh;
+
+  --text-color-secondary: lightgray;
+  --text-color-accent: #fff;
+  --win-color: #2db86e;
+  --field-color: 	#328e13;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, section, hr {
+  margin: 0;
+}
+
+button {
+  background-color: var(--win-color);
+  color: var(--text-color-accent);
+  padding: 0.5em;
+  border: 1px solid var(--win-color);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--text-color-accent);
+  color: var(--win-color);
+}
