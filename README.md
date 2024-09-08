@@ -4,7 +4,7 @@
 
 ### Input
 
-CSV files must be uploaded by the user. The app should work for every tournament, with 32 teams, not only for EURO 2024.
+CSV files must be uploaded by the user. The app should work for every tournament, with 24 teams and 6 groups, not only for EURO 2024.
 
 After uploading all files home page view should be changed.
 

@@ -5,9 +5,12 @@
   place-content: center;
   text-align: center;
   min-height: 100vh;
+  background-color: whitesmoke;
 
-  --text-color-secondary: lightgray;
+  --text-color-primary: black;
+  --text-color-secondary: #777;
   --text-color-accent: #fff;
+  --border-color: lightgray;
   --win-color: #2db86e;
   --field-color: 	#328e13;
 }

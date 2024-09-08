@@ -1,0 +1,8 @@
+.file_upload_message {
+    color: var(--text-color-secondary);
+}
+
+.file_type_name {
+    font-weight: bold;
+    color: var(--text-color-primary);
+}
