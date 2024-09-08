@@ -12,6 +12,10 @@ import {
 	validateRecordsFileLine,
 	validateTeamsFileLine,
 } from "../validation/InputValidator.js";
+import { addMatches } from "../lib/store/slices/matchesSlice.js";
+import { addPlayers } from "../lib/store/slices/playersSlice.js";
+import { addRecords } from "../lib/store/slices/recordsSlice.js";
+import { addTeams } from "../lib/store/slices/teamsSlice.js";
 
 const inputs = [
 	{
@@ -20,6 +24,7 @@ const inputs = [
 		icon: <ScoreboardIcon />,
 		headerRule: "ID,ATeamID,BTeamID,Date,Score",
 		lineRule: validateMatchesFileLine,
+		action: addMatches,
 	},
 	{
 		id: 2,
@@ -27,6 +32,7 @@ const inputs = [
 		icon: <PlayersIcon />,
 		headerRule: "ID,TeamNumber,Position,FullName,TeamID",
 		lineRule: validatePlayersFileLine,
+		action: addPlayers,
 	},
 	{
 		id: 3,
@@ -34,6 +40,7 @@ const inputs = [
 		icon: <RecordsIcon />,
 		headerRule: "ID,PlayerID,MatchID,fromMinutes,toMinutes",
 		lineRule: validateRecordsFileLine,
+		action: addRecords,
 	},
 	{
 		id: 4,
@@ -41,6 +48,7 @@ const inputs = [
 		icon: <TeamIcon />,
 		headerRule: "ID,Name,ManagerFullName,Group",
 		lineRule: validateTeamsFileLine,
+		action: addTeams,
 	},
 ];
 

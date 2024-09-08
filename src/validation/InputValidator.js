@@ -49,7 +49,7 @@ export function validateString(str) {
 }
 
 export function validateNumber(num, includeZero = false) {
-	const isValidNumber = !Number.isNaN(num);
+	const isValidNumber = /^\d+$/.test(num);
 
 	if (isValidNumber) {
 		if (!includeZero && num == 0) {
@@ -70,6 +70,11 @@ export function validateMatchesFileLine(line) {
 	if (parts.length !== 5) {
 		return false;
 	}
+	const id = parts[0];
+	const aTeamId = parts[1];
+	const bTeamId = parts[2];
+	const date = parts[3];
+	const score = parts[4];
 
 	for (let index = 0; index < 3; index++) {
 		if (!validateNumber(parts[index])) {
@@ -77,11 +82,11 @@ export function validateMatchesFileLine(line) {
 		}
 	}
 
-	if (!validateDate(parts[3]) || !SCORE_REGEX_PATTERN.test(parts[4])) {
+	if (!validateDate(date) || !SCORE_REGEX_PATTERN.test(score)) {
 		return false;
 	}
 
-	return parts;
+	return { id, aTeamId, bTeamId, date, score };
 }
 
 export function validatePlayersFileLine(line) {
@@ -94,6 +99,11 @@ export function validatePlayersFileLine(line) {
 	if (parts.length !== 5) {
 		return false;
 	}
+	const id = parts[0];
+	const teamNumber = parts[1];
+	const position = parts[2];
+	const fullName = parts[3];
+	const teamId = parts[4];
 
 	for (let index = 0; index < 2; index++) {
 		if (!validateNumber(parts[index])) {
@@ -102,14 +112,14 @@ export function validatePlayersFileLine(line) {
 	}
 
 	if (
-		!PLAYERS_POSITIONS.includes(parts[2]) ||
-		!validateString(parts[3]) ||
-		!validateNumber(parts[4])
+		!PLAYERS_POSITIONS.includes(position) ||
+		!validateString(fullName) ||
+		!validateNumber(teamId)
 	) {
 		return false;
 	}
 
-	return parts;
+	return { id, teamNumber, position, fullName, teamId };
 }
 
 export function validateRecordsFileLine(line) {
@@ -122,6 +132,11 @@ export function validateRecordsFileLine(line) {
 	if (parts.length !== 5) {
 		return false;
 	}
+	const id = parts[0];
+	const playerId = parts[1];
+	const matchId = parts[2];
+	const fromMinutes = parts[3];
+	let toMinutes = parts[4];
 
 	for (let index = 0; index < 3; index++) {
 		if (!validateNumber(parts[index])) {
@@ -129,15 +144,18 @@ export function validateRecordsFileLine(line) {
 		}
 	}
 
-	const toMinutes = parts[4];
 	if (
-		!validateNumber(parts[3], true) ||
+		!validateNumber(fromMinutes, true) ||
 		(!validateNumber(toMinutes) && toMinutes !== NULL_STRING)
 	) {
 		return false;
 	}
 
-	return parts;
+	if (toMinutes === NULL_STRING) {
+		toMinutes = "90";
+	}
+
+	return { id, playerId, matchId, fromMinutes, toMinutes };
 }
 
 export function validateTeamsFileLine(line) {
@@ -150,10 +168,10 @@ export function validateTeamsFileLine(line) {
 	if (parts.length !== 4) {
 		return false;
 	}
-
-	if (!validateNumber(parts[0])) {
-		return false;
-	}
+	const id = parts[0];
+	const name = parts[1];
+	const managerFullName = parts[2];
+	const group = parts[3];
 
 	for (let index = 1; index < 3; index++) {
 		if (!validateString(parts[index])) {
@@ -161,9 +179,9 @@ export function validateTeamsFileLine(line) {
 		}
 	}
 
-	if (!GROUPS.includes(parts[3])) {
+	if (!validateNumber(id) || !GROUPS.includes(group)) {
 		return false;
 	}
 
-	return parts;
+	return { id, name, managerFullName, group };
 }

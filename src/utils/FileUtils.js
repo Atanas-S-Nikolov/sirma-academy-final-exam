@@ -13,12 +13,17 @@ function getLineSepartor(text) {
 	return UNIX_LINE_SEPARATOR;
 }
 
-export async function readCSVFile(event, headerRule, lineRule) {
+export async function readCSVFile(
+	event,
+	headerRule,
+	lineRule,
+	cardFileTypeName,
+) {
 	const file = event.target.files[0];
 
 	if (file.type !== CSV_FILE_TYPE) {
 		alert("Invalid file type. Please upload CSV file.");
-		return;
+		return undefined;
 	}
 
 	const text = await file.text();
@@ -30,14 +35,23 @@ export async function readCSVFile(event, headerRule, lineRule) {
 		lines.splice(lastlineIndex);
 	}
 
+	const objects = [];
 	if (headerLine === headerRule) {
 		for (const line of lines) {
-			const parts = lineRule(line);
-			if (parts) {
-				console.log(parts);
+			const obj = lineRule(line);
+			if (obj) {
+				objects.push(obj);
 			} else {
-				console.error("Error", line);
+				alert("File has error. Please upload valid file.");
+				return undefined;
 			}
 		}
 	}
+
+	if (objects.length === 0) {
+		alert(`Please upload valid ${cardFileTypeName} data file.`);
+		return undefined;
+	}
+
+	return objects;
 }
