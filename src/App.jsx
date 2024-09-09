@@ -9,6 +9,7 @@ import { clearPlayers } from "./lib/store/slices/playersSlice";
 import { clearRecords } from "./lib/store/slices/recordsSlice";
 import { clearTeams } from "./lib/store/slices/teamsSlice";
 import { isObjectEmpty } from "./utils/ObjectUtils";
+import { distributeMatches } from "./utils/MatchUtils";
 
 export default function App() {
 	const dispatch = useDispatch();
@@ -31,6 +32,14 @@ export default function App() {
 	}
 
 	if (hasData) {
+		const { groups, qualified } = distributeMatches(matches, teams);
+
+		console.log("Groups:");
+		console.log(groups);
+
+		console.log("Qualified:");
+		console.log(qualified);
+
 		return (
 			<>
 				<button onClick={resetState}>Reset</button>

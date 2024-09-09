@@ -3,7 +3,7 @@ import {
 	GROUPS,
 	NULL_STRING,
 	PLAYERS_POSITIONS,
-} from "../constants/GlobalUtils";
+} from "../constants/GlobalConstants";
 
 const SLASH = "/";
 const DOT = ".";
@@ -26,8 +26,12 @@ function getDateSeparator(dateStr) {
 	return undefined;
 }
 
+function isValidDateObject(dateStr) {
+	return !isNaN(new Date(dateStr));
+}
+
 export function validateDate(dateStr) {
-	const isValidDate = !isNaN(new Date(dateStr));
+	const isValidDate = isValidDateObject(dateStr);
 
 	if (!isValidDate) {
 		const separator = getDateSeparator(dateStr);
@@ -36,12 +40,20 @@ export function validateDate(dateStr) {
 			return false;
 		}
 
-		if (dateStr.split(separator).length !== 3) {
+		const dateParts = dateStr.split(separator);
+		if (dateParts.length !== 3) {
 			return false;
 		}
+
+		// Try to convert DMY it to MDY and validate again.
+		const day = dateParts[0];
+		const month = dateParts[1];
+		const year = dateParts[2];
+		const euroStandardDate = `${month}${SLASH}${day}${SLASH}${year}`;
+		return isValidDateObject(euroStandardDate) ? euroStandardDate : false;
 	}
 
-	return true;
+	return dateStr;
 }
 
 export function validateString(str) {
@@ -82,11 +94,12 @@ export function validateMatchesFileLine(line) {
 		}
 	}
 
-	if (!validateDate(date) || !SCORE_REGEX_PATTERN.test(score)) {
+	const validatedDate = validateDate(date);
+	if (!validatedDate || !SCORE_REGEX_PATTERN.test(score)) {
 		return false;
 	}
 
-	return { id, aTeamId, bTeamId, date, score };
+	return { id, aTeamId, bTeamId, date: validatedDate, score };
 }
 
 export function validatePlayersFileLine(line) {
