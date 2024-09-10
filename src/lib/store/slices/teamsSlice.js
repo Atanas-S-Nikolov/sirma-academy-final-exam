@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { arrayToObject } from "../../../utils/ObjectUtils";
 
 const initialState = {
+	hasData: false,
 	data: {},
 };
 
@@ -11,6 +12,7 @@ export const teamsSlice = createSlice({
 	reducers: {
 		addTeams: (state, action) => {
 			const teams = arrayToObject(action.payload);
+			state.hasData = true;
 			state.data = teams;
 		},
 		clearTeams: () => initialState,

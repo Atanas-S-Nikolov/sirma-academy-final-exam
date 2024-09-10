@@ -1,0 +1,10 @@
+.group_stage {
+    display: grid;
+    gap: 1em;
+    text-align: left;
+}
+
+.groups_wrapper {
+    display: inherit;
+    gap: 10px;
+}

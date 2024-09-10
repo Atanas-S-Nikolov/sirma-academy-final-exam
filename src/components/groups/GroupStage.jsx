@@ -1,7 +1,20 @@
-function joinTeamsInGroups(matches, teams) {}
+import styles from "../../styles/groups/GroupStage.module.css";
 
-export default function GroupStage({ matches, teams }) {
-	const groups = joinTeamsInGroups(matches, teams);
+import { GROUPS } from "../../constants/GlobalConstants";
+import Group from "./Group";
 
-	return <></>;
+export default function GroupStage({ groups }) {
+	return (
+		<section className={styles.group_stage}>
+			<h1>Groups</h1>
+			<div className={styles.groups_wrapper}>
+				{GROUPS.map((groupName) => (
+					<Group
+						key={groupName}
+						group={{ groupName, matchesIds: groups.get(groupName) }}
+					/>
+				))}
+			</div>
+		</section>
+	);
 }

@@ -1,12 +1,9 @@
 :root {
   font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  min-height: 100vh;
   background-color: whitesmoke;
 
+  --primary-color: #fff;
   --text-color-primary: black;
   --text-color-secondary: #777;
   --text-color-accent: #fff;
@@ -27,13 +24,21 @@ h1, h2, h3, h4, h5, h6, p, span, div, section, hr {
 button {
   background-color: var(--win-color);
   color: var(--text-color-accent);
-  padding: 0.5em;
+  padding: 0.5em 0.75em;
   border: 1px solid var(--win-color);
   border-radius: 2px;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 button:hover {
   background-color: var(--text-color-accent);
   color: var(--win-color);
+}
+
+main {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 2em 1em;
 }
