@@ -1,6 +1,7 @@
 .nav_list {
     display: flex;
     gap: 1em;
+    margin-left: 2em;
     font-weight: bold;
 }
 

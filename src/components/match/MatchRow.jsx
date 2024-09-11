@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import styles from "../../styles/match/MatchRow.module.css";
 import { useSelector } from "react-redux";
+import { MATCH_DETAILS_URL } from "../../constants/UrlConstants";
 
 export default function MatchRow({ matchId }) {
 	const { aTeamId, bTeamId, date, score } = useSelector(
@@ -10,16 +12,21 @@ export default function MatchRow({ matchId }) {
 	const [aTeamScore, bTeamScore] = score.split("-");
 
 	return (
-		<section className={styles.match_row}>
-			{date}
-			<div>
-				<p>
-					{aTeamName} - {aTeamScore}
-				</p>
-				<p>
-					{bTeamName} - {bTeamScore}
-				</p>
-			</div>
-		</section>
+		<Link
+			to={`${MATCH_DETAILS_URL}/${matchId}`}
+			title={`${aTeamName} vs. ${bTeamName}`}
+		>
+			<section className={styles.match_row}>
+				{date}
+				<div>
+					<p>
+						{aTeamName} - {aTeamScore}
+					</p>
+					<p>
+						{bTeamName} - {bTeamScore}
+					</p>
+				</div>
+			</section>
+		</Link>
 	);
 }

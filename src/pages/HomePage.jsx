@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 import withLayout from "../layouts/Layout";
 import { Navigate } from "react-router-dom";
-import { FIXTURES_AND_RESULTS } from "../constants/UrlConstants";
+import { FIXTURES_AND_RESULTS_URL } from "../constants/UrlConstants";
 
 function Home() {
 	const hasMatches = useSelector((state) => state.matches.hasData);
@@ -15,7 +15,7 @@ function Home() {
 	const hasData = hasMatches && hasPlayers && hasRecords && hasTeams;
 
 	if (hasData) {
-		return <Navigate to={FIXTURES_AND_RESULTS} replace />
+		return <Navigate to={FIXTURES_AND_RESULTS_URL} replace />
 	}
 
 	return (

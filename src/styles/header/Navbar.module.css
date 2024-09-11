@@ -9,3 +9,8 @@
 .logo {
     width: 50px;
 }
+
+.nav_wrapper {
+    display: inherit;
+    align-items: inherit;
+}

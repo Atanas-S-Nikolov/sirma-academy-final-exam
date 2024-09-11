@@ -1,0 +1,45 @@
+.team_squad {
+    text-align: left;
+}
+
+.squad_table {
+    background-color: var(--primary-color);
+    margin-top: 10px;
+}
+
+.player_row :first-child {
+    color: var(--text-color-secondary)
+}
+
+.player_row .position {
+    border-radius: 100px;
+    padding: 4px;
+    font-size: 12px;
+    color: var(--text-color-accent);
+}
+
+.gk {
+    background-color: orange;
+}
+
+.df {
+    background-color: green;
+}
+
+.mf {
+    background-color:#008dda;
+}
+
+.fw {
+    background-color: #a02334;
+}
+
+.team_name {
+    display: none;
+}
+
+@media (max-width: 770px) {
+    .team_name {
+        display: block;
+    }
+}
