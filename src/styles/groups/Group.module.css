@@ -1,0 +1,12 @@
+.group_section {
+    background-color: var(--primary-color);
+    padding: 1em;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.matches_section {
+    margin-top: 1em;
+    display: grid;
+    gap: 10px;
+}

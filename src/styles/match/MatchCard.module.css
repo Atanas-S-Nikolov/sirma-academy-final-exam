@@ -5,6 +5,7 @@
     padding: 1em;
     display: grid;
     gap: 10px;
+    text-align: center;
 }
 
 .date {

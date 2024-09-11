@@ -1,0 +1,14 @@
+.nav_list {
+    display: flex;
+    gap: 1em;
+    font-weight: bold;
+}
+
+.nav_list a {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+}
+
+.nav_list a:hover {
+    color: var(--win-color);
+}
