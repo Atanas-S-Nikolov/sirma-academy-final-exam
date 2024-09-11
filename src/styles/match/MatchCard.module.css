@@ -8,6 +8,10 @@
     text-align: center;
 }
 
+.match_card:hover {
+    border: 1px solid var(--text-color-primary);
+}
+
 .date {
     color: var(--text-color-secondary);
 }

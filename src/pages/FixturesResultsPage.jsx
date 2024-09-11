@@ -2,7 +2,7 @@ import GroupStage from "../components/groups/GroupStage";
 import withLayout from "../layouts/Layout";
 import { collectGroupMatches } from "../utils/MatchUtils";
 
-export default function FixturesResults() {
+function FixturesResults() {
 	const groups = collectGroupMatches();
 	return (
 		<>
@@ -11,4 +11,5 @@ export default function FixturesResults() {
 	);
 }
 
-export const FixturesResultsPage = withLayout(FixturesResults);
+const FixturesResultsPage = withLayout(FixturesResults);
+export default FixturesResultsPage;

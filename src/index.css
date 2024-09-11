@@ -1,15 +1,16 @@
 :root {
-  font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
-  box-sizing: border-box;
-  background-color: whitesmoke;
-
+  --background-color: whitesmoke;
+  --border-color: lightgray;
   --primary-color: #fff;
   --text-color-primary: black;
   --text-color-secondary: #777;
   --text-color-accent: #fff;
-  --border-color: lightgray;
   --win-color: #2db86e;
   --field-color: 	#328e13;
+
+  font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  background-color: var(--background-color);
 }
 
 body {
@@ -17,8 +18,43 @@ body {
   padding: 0;
 }
 
+li, ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 h1, h2, h3, h4, h5, h6, p, span, div, section, hr {
   margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+h6 {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color-primary);
 }
 
 button {
@@ -41,4 +77,23 @@ main {
   place-content: center;
   text-align: center;
   padding: 2em 1em;
+}
+
+table {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  border-spacing: 0px;
+}
+
+th {
+  color: var(--text-color-secondary)
+}
+
+th,
+td {
+  padding: .5em 1em;
+}
+
+tbody td {
+  border-top: 1px solid var(--border-color);
 }

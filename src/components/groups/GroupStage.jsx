@@ -6,7 +6,7 @@ import Group from "./Group";
 export default function GroupStage({ groups }) {
 	return (
 		<section className={styles.group_stage}>
-			<h1>Groups</h1>
+			<h2>Groups</h2>
 			<div className={styles.groups_wrapper}>
 				{GROUPS.map((groupName) => (
 					<Group

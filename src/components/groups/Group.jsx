@@ -6,7 +6,7 @@ export default function Group({ group }) {
 
 	return (
 		<section className={styles.group_section}>
-			<h4>Group {groupName}</h4>
+			<h6>Group {groupName}</h6>
 			<section className={styles.matches_section}>
 				{matchesIds.map((id) => (
 					<MatchRow key={id} matchId={id} />

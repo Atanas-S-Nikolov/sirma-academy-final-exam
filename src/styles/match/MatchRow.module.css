@@ -5,6 +5,10 @@
     gap: 2em;
 }
 
+.match_row:hover {
+    background-color: var(--background-color);
+}
+
 .score_delimiter {
     flex: 1;
 }

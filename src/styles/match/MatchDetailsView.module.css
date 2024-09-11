@@ -1,0 +1,31 @@
+.match_details {
+    display: grid;
+    place-items: center;
+}
+
+.teams_formations {
+    display: flex;
+    gap: 100px;
+    margin-top: 100px;
+}
+
+.results_wrapper {
+    display: flex;
+    gap: 1em;
+}
+
+.date {
+    color: var(--text-color-secondary);
+    font-weight: normal;
+}
+
+.match_result_text {
+    color: var(--win-color);
+}
+
+@media (max-width: 770px) {
+    .teams_formations {
+        flex-direction: column;
+        gap: 50px;
+    }
+}

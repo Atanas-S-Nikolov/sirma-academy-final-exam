@@ -10,3 +10,9 @@
     display: inherit;
     grid-template-columns: repeat(2, 1fr)
 }
+
+@media (max-width: 770px) {
+    .groups_wrapper {
+        grid-template-columns: 1fr;
+    }
+}
