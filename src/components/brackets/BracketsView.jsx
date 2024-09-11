@@ -1,8 +1,10 @@
+import styles from "../../styles/brackets/BracketsView.module.css";
+import BracketNode from "./BracketNode";
+
 export default function BracketsView({ matches }) {
-    console.log(matches);
-    
-    return (
-        <>
-        </>
-    )
+	return (
+		<div className={styles.brackets_view}>
+			<BracketNode node={matches} />
+		</div>
+	);
 }

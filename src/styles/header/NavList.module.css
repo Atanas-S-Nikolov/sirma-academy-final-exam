@@ -5,7 +5,7 @@
 }
 
 .nav_list a {
-    color: var(--text-color-primary);
+    color: var(--text-color-secondary);
     text-decoration: none;
 }
 

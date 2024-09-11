@@ -1,15 +1,15 @@
 import styles from "../../styles/groups/Group.module.css";
-import MatchCard from "../MatchCard";
+import MatchRow from "../match/MatchRow";
 
 export default function Group({ group }) {
 	const { groupName, matchesIds } = group;
 
 	return (
-		<section>
+		<section className={styles.group_section}>
 			<h4>Group {groupName}</h4>
-			<section className={styles.group_section}>
+			<section className={styles.matches_section}>
 				{matchesIds.map((id) => (
-					<MatchCard key={id} matchId={id} />
+					<MatchRow key={id} matchId={id} />
 				))}
 			</section>
 		</section>

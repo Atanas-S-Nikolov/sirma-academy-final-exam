@@ -1,0 +1,10 @@
+.match_row {
+    color: var(--text-color-primary);
+    border-bottom: 1px solid var(--text-color-secondary);
+    display: flex;
+    gap: 2em;
+}
+
+.score_delimiter {
+    flex: 1;
+}

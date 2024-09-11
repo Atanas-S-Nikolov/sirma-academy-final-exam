@@ -1,4 +1,4 @@
-import styles from "../styles/MatchCard.module.css";
+import styles from "../../styles/match/MatchCard.module.css";
 import { useSelector } from "react-redux";
 
 export default function MatchCard({ matchId }) {
