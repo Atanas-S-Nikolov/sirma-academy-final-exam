@@ -20,7 +20,7 @@ Match details page should contains detailed information about the match: match r
 
 ### Input explanation
 
-readCSVFile() in [FileUtils.js](src/utils/FileUtils.js) is responsible for file uploading all data is validated by [InputValidator.js](src/validation/InputValidator.js). [UploadCard.js](src/components/UploadCard.jsx) is component that trigger file uploading. [UploadContainer.js](src/components/UploadContainer.jsx) is container component for UploadCard.js and contains array of elements rendered by UploadCard.js and they have custom validations and action that after uploading every different data like: matches, players, record and teams are stored in different store slice with redux-toolkit.
+readCSVFile() in [FileUtils.js](src/utils/FileUtils.js) is responsible for file uploading all data is validated by [InputValidator.js](src/validation/InputValidator.js). [UploadCard.js](src/components/UploadCard.jsx) is component that trigger file uploading. [UploadCardsContainer.js](src/components/UploadCardsContainer.jsx) is container component for UploadCard.js and contains array of elements rendered by UploadCard.js and they have custom validations and action that after uploading every different data like: matches, players, record and teams are stored in different store slice with redux-toolkit.
 
 ### Groups and brackets explanation
 
